@@ -28,5 +28,31 @@ public class AndroidNativeAPI : INativeAPI
             Debug.LogError("AndroidJavaObject Is Null");
         }
     }
+
+    //-------------------------------------------------------------------------
+    public void takeNewPhoto(int photo_width, int photo_height, string store_photopath)
+    {
+        if (mAndroidJavaObject != null)
+        {
+            //mAndroidJavaObject.Call("pay", charge_data);
+        }
+        else
+        {
+            Debug.LogError("AndroidJavaObject Is Null");
+        }
+    }
+
+    //-------------------------------------------------------------------------
+    public void takeExistPhoto(int photo_width, int photo_height, string store_photopath)
+    {
+        if (mAndroidJavaObject != null)
+        {
+            //mAndroidJavaObject.Call("pay", charge_data);
+        }
+        else
+        {
+            Debug.LogError("AndroidJavaObject Is Null");
+        }
+    }
 }
 #endif

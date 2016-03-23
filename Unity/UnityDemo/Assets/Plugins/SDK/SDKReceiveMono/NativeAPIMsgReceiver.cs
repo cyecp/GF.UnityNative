@@ -15,4 +15,10 @@ public class NativeAPIMsgReceiver : MonoBehaviour
     {
         Debug.Log("ReceiveError::" + error);
     }
+
+    //-------------------------------------------------------------------------
+    public void sendPicture(string picture_data)
+    {
+        Debug.Log("sendPicture::" + picture_data);
+    }
 }
