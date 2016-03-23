@@ -234,3 +234,9 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+/Unity/UnityDemo/Temp
+/Unity/UnityDemo/Library
+/Unity/UnityDemo/UnityDemo.CSharp.Plugins.csproj
+/Unity/UnityDemo/UnityDemo.CSharp.csproj
+/Unity/UnityDemo/UnityDemo.sln
