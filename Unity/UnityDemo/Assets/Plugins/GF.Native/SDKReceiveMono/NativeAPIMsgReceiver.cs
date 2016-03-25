@@ -21,4 +21,26 @@ public class NativeAPIMsgReceiver : MonoBehaviour
     {
         Debug.Log("sendPicture::" + picture_data);
     }
+
+    //-------------------------------------------------------------------------
+    public void getPicResult(string getpic_result)
+    {
+        if (getpic_result.Equals(_eReceiveResult.getPicSuccess.ToString()))
+        {
+            //加载图片成功
+            Debug.Log("加载图片成功");
+        }
+        else
+        {
+            //加载图片失败
+
+        }
+    }
+}
+
+//-------------------------------------------------------------------------
+public enum _eReceiveResult
+{
+    getPicFailed,
+    getPicSuccess,
 }
