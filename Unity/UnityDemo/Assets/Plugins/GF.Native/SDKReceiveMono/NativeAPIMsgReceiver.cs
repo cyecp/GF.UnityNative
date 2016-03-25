@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class NativeAPIMsgReceiver : MonoBehaviour
 {
+    public INativeAPIMsgReceiverListener NativeAPIMsgReceiverListner { get; set; }
+
     //-------------------------------------------------------------------------
     public void PayResult(string result)
     {
         Debug.Log("PayResult::" + result);
+        if (NativeAPIMsgReceiverListner != null)
+        {
+            NativeAPIMsgReceiverListner.PayResult(result);
+        }
     }
 
     //-------------------------------------------------------------------------
@@ -25,16 +31,21 @@ public class NativeAPIMsgReceiver : MonoBehaviour
     //-------------------------------------------------------------------------
     public void getPicResult(string getpic_result)
     {
-        if (getpic_result.Equals(_eReceiveResult.getPicSuccess.ToString()))
+        if (NativeAPIMsgReceiverListner != null)
         {
-            //加载图片成功
-            Debug.Log("加载图片成功");
+            NativeAPIMsgReceiverListner.getPicResult(getpic_result);
         }
-        else
-        {
-            //加载图片失败
 
-        }
+        //if (getpic_result.Equals(_eReceiveResult.getPicSuccess.ToString()))
+        //{
+        //    //加载图片成功
+        //    Debug.Log("加载图片成功");
+        //}
+        //else
+        //{
+        //    //加载图片失败
+
+        //}
     }
 }
 
