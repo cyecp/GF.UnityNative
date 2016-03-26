@@ -27,13 +27,13 @@ public class NativeSDK
     }
 
     //-------------------------------------------------------------------------
-    public void takeNewPhoto(int photo_width, int photo_height, string photo_name)
+    public static void takeNewPhoto(int photo_width, int photo_height, string photo_name)
     {
         mINativeAPI.takeNewPhoto(photo_width, photo_height, photo_name);
     }
 
     //-------------------------------------------------------------------------
-    public void takeExistPhoto(int photo_width, int photo_height, string photo_name)
+    public static void takeExistPhoto(int photo_width, int photo_height, string photo_name)
     {
         mINativeAPI.takeExistPhoto(photo_width, photo_height, photo_name);
     }
