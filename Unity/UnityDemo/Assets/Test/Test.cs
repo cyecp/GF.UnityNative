@@ -5,18 +5,19 @@ using System;
 public class Test : MonoBehaviour, INativeAPIMsgReceiverListener
 {
     //-------------------------------------------------------------------------
-    public void getPicResult(string getpic_result)
+    public void getPicFail(string fail)
     {
-        if (getpic_result.Equals(_eReceiveResult.getPicSuccess.ToString()))
-        {
-            //加载图片成功
-            Debug.Log("加载图片成功");
-        }
-        else
-        {
-            //加载图片失败
+        //加载图片失败
+        Debug.Log("加载图片失败");
 
-        }
+    }
+
+    //-------------------------------------------------------------------------
+    public void getPicSuccess(string getpic_result)
+    {
+        //加载图片成功
+        Debug.Log("加载图片成功");
+
     }
 
     //-------------------------------------------------------------------------

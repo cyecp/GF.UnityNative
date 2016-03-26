@@ -29,11 +29,11 @@ public class NativeAPIMsgReceiver : MonoBehaviour
     }
 
     //-------------------------------------------------------------------------
-    public void getPicResult(string getpic_result)
+    public void getPicSuccess(string getpic_result)
     {
         if (NativeAPIMsgReceiverListner != null)
         {
-            NativeAPIMsgReceiverListner.getPicResult(getpic_result);
+            NativeAPIMsgReceiverListner.getPicSuccess(getpic_result);
         }
 
         //if (getpic_result.Equals(_eReceiveResult.getPicSuccess.ToString()))
@@ -47,11 +47,13 @@ public class NativeAPIMsgReceiver : MonoBehaviour
 
         //}
     }
-}
 
-//-------------------------------------------------------------------------
-public enum _eReceiveResult
-{
-    getPicFailed,
-    getPicSuccess,
+    //-------------------------------------------------------------------------
+    public void getPicFail(string fail)
+    {
+        if (NativeAPIMsgReceiverListner != null)
+        {
+            NativeAPIMsgReceiverListner.getPicFail(fail);
+        }
+    }
 }

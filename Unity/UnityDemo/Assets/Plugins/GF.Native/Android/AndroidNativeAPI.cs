@@ -37,7 +37,8 @@ public class AndroidNativeAPI : INativeAPI
     {
         if (mAndroidTakePhoto == null)
         {
-            mAndroidTakePhoto = mAndoridJavaClassTakePhoto.CallStatic<AndroidJavaObject>("Instantce", new object[] { photo_width, photo_height, "", photo_name, "NativeAPIMsgReceiver" });
+            mAndroidTakePhoto = mAndoridJavaClassTakePhoto.CallStatic<AndroidJavaObject>("Instantce",
+                new object[] { photo_width, photo_height, "getPicSuccess", "getPicFail", photo_name, "NativeAPIMsgReceiver" });
         }
 
         if (mAndroidTakePhoto != null)
@@ -55,7 +56,8 @@ public class AndroidNativeAPI : INativeAPI
     {
         if (mAndroidTakePhoto == null)
         {
-            mAndroidTakePhoto = mAndoridJavaClassTakePhoto.CallStatic<AndroidJavaObject>("Instantce", new object[] { photo_width, photo_height, "", photo_name, "NativeAPIMsgReceiver" });
+            mAndroidTakePhoto = mAndoridJavaClassTakePhoto.CallStatic<AndroidJavaObject>("Instantce",
+                new object[] { photo_width, photo_height, "getPicSuccess", "getPicFail", photo_name, "NativeAPIMsgReceiver" });
         }
 
         if (mAndroidTakePhoto != null)

@@ -4,5 +4,6 @@ public interface INativeAPIMsgReceiverListener
 {
     //-------------------------------------------------------------------------
     void PayResult(string result);
-    void getPicResult(string getpic_result);
+    void getPicSuccess(string getpic_result);
+    void getPicFail(string fail);
 }
