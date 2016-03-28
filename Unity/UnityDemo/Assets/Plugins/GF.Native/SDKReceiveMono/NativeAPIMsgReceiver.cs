@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class NativeAPIMsgReceiver : MonoBehaviour
 {
-    public INativeAPIMsgReceiverListener NativeAPIMsgReceiverListner { get; set; }
+    public ITakePhotoReceiverListener TakePhotoReceiverListener { get; set; }
+    public IPayReceiverListener PayReceiverListener { get; set; }
 
     //-------------------------------------------------------------------------
     public void PayResult(string result)
     {
         Debug.Log("PayResult::" + result);
-        if (NativeAPIMsgReceiverListner != null)
+        if (PayReceiverListener != null)
         {
-            NativeAPIMsgReceiverListner.PayResult(result);
+            PayReceiverListener.PayResult(result);
         }
     }
 
@@ -31,9 +32,9 @@ public class NativeAPIMsgReceiver : MonoBehaviour
     //-------------------------------------------------------------------------
     public void getPicSuccess(string getpic_result)
     {
-        if (NativeAPIMsgReceiverListner != null)
+        if (TakePhotoReceiverListener != null)
         {
-            NativeAPIMsgReceiverListner.getPicSuccess(getpic_result);
+            TakePhotoReceiverListener.getPicSuccess(getpic_result);
         }
 
         //if (getpic_result.Equals(_eReceiveResult.getPicSuccess.ToString()))
@@ -51,9 +52,9 @@ public class NativeAPIMsgReceiver : MonoBehaviour
     //-------------------------------------------------------------------------
     public void getPicFail(string fail)
     {
-        if (NativeAPIMsgReceiverListner != null)
+        if (TakePhotoReceiverListener != null)
         {
-            NativeAPIMsgReceiverListner.getPicFail(fail);
+            TakePhotoReceiverListener.getPicFail(fail);
         }
     }
 }

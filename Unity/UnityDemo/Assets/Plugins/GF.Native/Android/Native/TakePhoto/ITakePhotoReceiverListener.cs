@@ -1,9 +1,6 @@
-﻿using System;
-
-public interface INativeAPIMsgReceiverListener
+﻿public interface ITakePhotoReceiverListener
 {
     //-------------------------------------------------------------------------
-    void PayResult(string result);
     void getPicSuccess(string getpic_result);
     void getPicFail(string fail);
 }

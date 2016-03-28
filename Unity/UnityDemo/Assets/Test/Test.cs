@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class Test : MonoBehaviour, INativeAPIMsgReceiverListener
+public class Test : MonoBehaviour, ITakePhotoReceiverListener, IPayReceiverListener
 {
     //-------------------------------------------------------------------------
     public void getPicFail(string fail)
@@ -29,12 +29,21 @@ public class Test : MonoBehaviour, INativeAPIMsgReceiverListener
     //-------------------------------------------------------------------------
     void Start()
     {
-
+        //初始化各个Listener
+        _initNativeMsgReceiverListener();
     }
 
     //-------------------------------------------------------------------------
     void Update()
     {
 
+    }
+
+    //-------------------------------------------------------------------------
+    void _initNativeMsgReceiverListener()
+    {
+        NativeAPIMsgReceiver nativeAPI_msgreceiver = GameObject.Find("NativeAPIMsgReceiver").GetComponent<NativeAPIMsgReceiver>();
+        nativeAPI_msgreceiver.TakePhotoReceiverListener = this;
+        nativeAPI_msgreceiver.PayReceiverListener = this;
     }
 }
