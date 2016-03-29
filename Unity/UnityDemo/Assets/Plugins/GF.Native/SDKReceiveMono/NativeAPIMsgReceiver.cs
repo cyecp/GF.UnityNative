@@ -6,6 +6,7 @@ public class NativeAPIMsgReceiver : MonoBehaviour
 {
     public ITakePhotoReceiverListener TakePhotoReceiverListener { get; set; }
     public IPayReceiverListener PayReceiverListener { get; set; }
+    public IAudioControlListener AudioControlListener { get; set; }
 
     //-------------------------------------------------------------------------
     public void PayResult(string result)

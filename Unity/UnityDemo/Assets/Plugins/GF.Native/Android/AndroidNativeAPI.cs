@@ -10,6 +10,8 @@ public class AndroidNativeAPI : INativeAPI
     public AndroidJavaObject mAndroidJavaObject;
     public AndroidJavaClass mAndoridJavaClassTakePhoto;
     public AndroidJavaObject mAndroidTakePhoto;
+    public AndroidJavaClass mAndroidJavaClassAudioControl;
+    public AndroidJavaObject mAndroidAudioControl;
 
     //-------------------------------------------------------------------------
     public AndroidNativeAPI()
@@ -17,6 +19,7 @@ public class AndroidNativeAPI : INativeAPI
         mAndroidJavaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         mAndroidJavaObject = mAndroidJavaClass.GetStatic<AndroidJavaObject>("currentActivity");
         mAndoridJavaClassTakePhoto = new AndroidJavaClass("com.TakePhoto.TakePhoto.TakePhoto");
+        mAndroidJavaClassAudioControl = new AndroidJavaClass("com.AndroidNative.AndroidNative.AudioControl");
     }
 
     //-------------------------------------------------------------------------
@@ -24,7 +27,7 @@ public class AndroidNativeAPI : INativeAPI
     {
         if (mAndroidJavaObject != null)
         {
-            mAndroidJavaObject.Call("pay", charge_data);
+            mAndroidJavaObject.Call(_eAndroidNativeAPI.pay.ToString(), charge_data);
         }
         else
         {
@@ -38,12 +41,12 @@ public class AndroidNativeAPI : INativeAPI
         if (mAndroidTakePhoto == null)
         {
             mAndroidTakePhoto = mAndoridJavaClassTakePhoto.CallStatic<AndroidJavaObject>("Instantce",
-                new object[] { photo_width, photo_height, "getPicSuccess", "getPicFail", photo_name, "NativeAPIMsgReceiver" });
+                photo_width, photo_height, "getPicSuccess", "getPicFail", photo_name, "NativeAPIMsgReceiver");
         }
 
         if (mAndroidTakePhoto != null)
         {
-            mAndroidTakePhoto.Call("takeNewPhoto");
+            mAndroidTakePhoto.Call(_eAndroidNativeAPI.takeNewPhoto.ToString());
         }
         else
         {
@@ -57,17 +60,62 @@ public class AndroidNativeAPI : INativeAPI
         if (mAndroidTakePhoto == null)
         {
             mAndroidTakePhoto = mAndoridJavaClassTakePhoto.CallStatic<AndroidJavaObject>("Instantce",
-                new object[] { photo_width, photo_height, "getPicSuccess", "getPicFail", photo_name, "NativeAPIMsgReceiver" });
+                photo_width, photo_height, "getPicSuccess", "getPicFail", photo_name, "NativeAPIMsgReceiver");
         }
 
         if (mAndroidTakePhoto != null)
         {
-            mAndroidTakePhoto.Call("takeExistPhoto");
+            mAndroidTakePhoto.Call(_eAndroidNativeAPI.takeExistPhoto.ToString());
         }
         else
         {
             Debug.LogError("TakePhoto Is Null");
         }
     }
+
+    //-------------------------------------------------------------------------
+    public void setMusicSilence()
+    {
+        _initMusicJavaObject();
+
+        mAndroidAudioControl.Call(_eAndroidNativeAPI.setMusicSilence.ToString());
+    }
+
+    //-------------------------------------------------------------------------
+    public void setMusicMax()
+    {
+        _initMusicJavaObject();
+
+        mAndroidAudioControl.Call(_eAndroidNativeAPI.setMusicMax.ToString());
+    }
+
+    //-------------------------------------------------------------------------
+    public void setCurrentMusicVolume(int current_muiscvolume)
+    {
+        _initMusicJavaObject();
+
+        mAndroidAudioControl.Call(_eAndroidNativeAPI.setCurrentMusicVolume.ToString(), current_muiscvolume);
+    }
+
+    //-------------------------------------------------------------------------
+    void _initMusicJavaObject()
+    {
+        if (mAndroidAudioControl == null)
+        {
+            mAndroidAudioControl = mAndroidJavaClassAudioControl.CallStatic<AndroidJavaObject>("Instantce",
+                "NativeAPIMsgReceiver", "audioChanged");
+        }
+    }
+}
+
+//-------------------------------------------------------------------------
+public enum _eAndroidNativeAPI
+{
+    pay,
+    takeNewPhoto,
+    takeExistPhoto,
+    setMusicSilence,
+    setMusicMax,
+    setCurrentMusicVolume,
 }
 #endif

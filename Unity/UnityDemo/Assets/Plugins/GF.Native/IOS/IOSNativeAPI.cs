@@ -26,7 +26,25 @@ public class IOSNativeAPI : INativeAPI
             "getPicFail", photo_width, photo_height, photo_name);
     }
 
-    #region DllImport
+    //-------------------------------------------------------------------------
+    public void setMusicSilence()
+    {
+        setMusicSilence_ios();
+    }
+
+    //-------------------------------------------------------------------------
+    public void setMusicMax()
+    {
+        setMusicMax_ios();
+    }
+
+    //-------------------------------------------------------------------------
+    public void setCurrentMusicVolume(int current_muiscvolume)
+    {
+        setCurrentMusicVolum_ios(current_muiscvolume);
+    }
+
+#region DllImport
     //-------------------------------------------------------------------------
     [DllImport("__Internal")]
     private static extern void pay_ios(string charge_data);
@@ -36,6 +54,12 @@ public class IOSNativeAPI : INativeAPI
     [DllImport("__Internal")]
     private static extern void takeExistPhoto_ios(string msg_recivername, string take_photosuccessmsgname,
         string take_photofailmsgname, int photo_width, int photo_height, string store_photopath);
-    #endregion
+    [DllImport("__Internal")]
+    private static extern void setMusicSilence_ios();
+    [DllImport("__Internal")]
+    private static extern void setMusicMax_ios();
+    [DllImport("__Internal")]
+    private static extern void setCurrentMusicVolum_ios(int current_musicvolume);
+#endregion
 }
 #endif

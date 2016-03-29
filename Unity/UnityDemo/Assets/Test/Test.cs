@@ -2,8 +2,15 @@
 using System.Collections;
 using System;
 
-public class Test : MonoBehaviour, ITakePhotoReceiverListener, IPayReceiverListener
+public class Test : MonoBehaviour,
+    ITakePhotoReceiverListener, IPayReceiverListener, IAudioControlListener
 {
+    //-------------------------------------------------------------------------
+    public void audioChanged(string chang)
+    {
+        Debug.Log("audioChanged");
+    }
+
     //-------------------------------------------------------------------------
     public void getPicFail(string fail)
     {
@@ -45,5 +52,6 @@ public class Test : MonoBehaviour, ITakePhotoReceiverListener, IPayReceiverListe
         NativeAPIMsgReceiver nativeAPI_msgreceiver = GameObject.Find("NativeAPIMsgReceiver").GetComponent<NativeAPIMsgReceiver>();
         nativeAPI_msgreceiver.TakePhotoReceiverListener = this;
         nativeAPI_msgreceiver.PayReceiverListener = this;
+        nativeAPI_msgreceiver.AudioControlListener = this;
     }
 }
