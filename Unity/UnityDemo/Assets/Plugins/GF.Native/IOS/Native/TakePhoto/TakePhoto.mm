@@ -190,7 +190,7 @@
 }
 @end
 
-extern "C" void takeNewPhoto(char* msg_recivername,char* take_photosuccessmsgname,
+extern "C" void takeNewPhoto_ios(char* msg_recivername,char* take_photosuccessmsgname,
                              char* take_photofailmsgname,int take_photowidth,int take_photoheight)//xiangji
 {
      NSLog( @"takeNewPhoto");
@@ -204,7 +204,7 @@ extern "C" void takeNewPhoto(char* msg_recivername,char* take_photosuccessmsgnam
     [app showCameraActionSheet];
 }
 
-extern "C" void takeExistPhoto(char* msg_recivername,char* take_photosuccessmsgname,
+extern "C" void takeExistPhoto_ios(char* msg_recivername,char* take_photosuccessmsgname,
                                char* take_photofailmsgname,int take_photowidth,int take_photoheight)//相册
 {
     NSLog( @"takeExistPhoto");
