@@ -114,7 +114,7 @@ extern "C" void cancelMusicMax_ios()
     [VolumeController cancelMusicMax];
 }
 
-extern "C" bool getIsMaxVolume()
+extern "C" bool getIsMaxVolume_ios()
 {
     return [VolumeController getIsMaxVolume];
 }
