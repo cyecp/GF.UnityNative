@@ -33,9 +33,21 @@ public class IOSNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
+    public void cancelMusicSilence()
+    {
+        cancelMusicSilence_ios();
+    }
+
+    //-------------------------------------------------------------------------
     public void setMusicMax()
     {
         setMusicMax_ios();
+    }
+
+    //-------------------------------------------------------------------------
+    public void cancelMusicMax()
+    {
+        cancelMusicMax_ios();
     }
 
     //-------------------------------------------------------------------------
@@ -57,7 +69,11 @@ public class IOSNativeAPI : INativeAPI
     [DllImport("__Internal")]
     private static extern void setMusicSilence_ios();
     [DllImport("__Internal")]
+    private static extern void cancelMusicSilence_ios();
+    [DllImport("__Internal")]
     private static extern void setMusicMax_ios();
+    [DllImport("__Internal")]
+    private static extern void cancelMusicMax_ios();
     [DllImport("__Internal")]
     private static extern void setCurrentMusicVolum_ios(int current_musicvolume);
 #endregion

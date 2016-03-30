@@ -37,4 +37,34 @@ public class NativeSDK
     {
         mINativeAPI.takeExistPhoto(photo_width, photo_height, photo_name);
     }
+
+    //-------------------------------------------------------------------------
+    public static void setMusicSilence()
+    {
+        mINativeAPI.setMusicSilence();
+    }
+
+    //-------------------------------------------------------------------------
+    public static void cancelMusicSilence()
+    {
+        mINativeAPI.cancelMusicSilence();
+    }
+
+    //-------------------------------------------------------------------------
+    public static void setMusicMax()
+    {
+        mINativeAPI.setMusicMax();
+    }
+
+    //-------------------------------------------------------------------------
+    public static void cancelMusicMax()
+    {
+        mINativeAPI.cancelMusicMax();
+    }
+
+    //-------------------------------------------------------------------------
+    public static void setCurrentMusicVolume(int current_muiscvolume)
+    {
+        mINativeAPI.setCurrentMusicVolume(current_muiscvolume);
+    }
 }

@@ -82,11 +82,27 @@ public class AndroidNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
+    public void cancelMusicSilence()
+    {
+        _initMusicJavaObject();
+
+        mAndroidAudioControl.Call(_eAndroidNativeAPI.cancelMusicSilence.ToString());
+    }
+
+    //-------------------------------------------------------------------------
     public void setMusicMax()
     {
         _initMusicJavaObject();
 
         mAndroidAudioControl.Call(_eAndroidNativeAPI.setMusicMax.ToString());
+    }
+
+    //-------------------------------------------------------------------------
+    public void cancelMusicMax()
+    {
+        _initMusicJavaObject();
+
+        mAndroidAudioControl.Call(_eAndroidNativeAPI.cancelMusicMax.ToString());
     }
 
     //-------------------------------------------------------------------------
@@ -115,7 +131,9 @@ public enum _eAndroidNativeAPI
     takeNewPhoto,
     takeExistPhoto,
     setMusicSilence,
+    cancelMusicSilence,
     setMusicMax,
+    cancelMusicMax,
     setCurrentMusicVolume,
 }
 #endif
