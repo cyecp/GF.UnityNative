@@ -19,7 +19,7 @@ public class AndroidNativeAPI : INativeAPI
         mAndroidJavaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         mAndroidJavaObject = mAndroidJavaClass.GetStatic<AndroidJavaObject>("currentActivity");
         mAndoridJavaClassTakePhoto = new AndroidJavaClass("com.TakePhoto.TakePhoto.TakePhoto");
-        mAndroidJavaClassAudioControl = new AndroidJavaClass("com.AndroidNative.AndroidNative.AudioControl");
+        mAndroidJavaClassAudioControl = new AndroidJavaClass("com.AndioControl.AndioControl.AudioControl");
     }
 
     //-------------------------------------------------------------------------
