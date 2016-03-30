@@ -51,6 +51,12 @@ public class NativeSDK
     }
 
     //-------------------------------------------------------------------------
+    public static bool getIsSilence()
+    {
+        return mINativeAPI.getIsSilence();
+    }
+
+    //-------------------------------------------------------------------------
     public static void setMusicMax()
     {
         mINativeAPI.setMusicMax();
@@ -63,8 +69,20 @@ public class NativeSDK
     }
 
     //-------------------------------------------------------------------------
+    public static bool getIsMaxVolume()
+    {
+        return mINativeAPI.getIsMaxVolume();
+    }
+
+    //-------------------------------------------------------------------------
     public static void setCurrentMusicVolume(int current_muiscvolume)
     {
         mINativeAPI.setCurrentMusicVolume(current_muiscvolume);
+    }
+
+    //-------------------------------------------------------------------------
+    public static float getCurrentMusicVolume()
+    {
+        return mINativeAPI.getCurrentMusicVolume();
     }
 }

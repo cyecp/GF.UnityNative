@@ -19,7 +19,7 @@ public class AndroidNativeAPI : INativeAPI
         mAndroidJavaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         mAndroidJavaObject = mAndroidJavaClass.GetStatic<AndroidJavaObject>("currentActivity");
         mAndoridJavaClassTakePhoto = new AndroidJavaClass("com.TakePhoto.TakePhoto.TakePhoto");
-        mAndroidJavaClassAudioControl = new AndroidJavaClass("com.AndioControl.AndioControl.AudioControl");
+        mAndroidJavaClassAudioControl = new AndroidJavaClass("com.AudioController.AudioController.AudioController");
     }
 
     //-------------------------------------------------------------------------
@@ -90,6 +90,14 @@ public class AndroidNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
+    public bool getIsSilence()
+    {
+        _initMusicJavaObject();
+
+        return mAndroidAudioControl.Call<bool>(_eAndroidNativeAPI.getIsSilence.ToString());
+    }
+
+    //-------------------------------------------------------------------------
     public void setMusicMax()
     {
         _initMusicJavaObject();
@@ -106,11 +114,27 @@ public class AndroidNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
+    public bool getIsMaxVolume()
+    {
+        _initMusicJavaObject();
+
+        return mAndroidAudioControl.Call<bool>(_eAndroidNativeAPI.getIsMaxVolume.ToString());
+    }
+
+    //-------------------------------------------------------------------------
     public void setCurrentMusicVolume(int current_muiscvolume)
     {
         _initMusicJavaObject();
 
         mAndroidAudioControl.Call(_eAndroidNativeAPI.setCurrentMusicVolume.ToString(), current_muiscvolume);
+    }
+
+    //-------------------------------------------------------------------------
+    public float getCurrentMusicVolume()
+    {
+        _initMusicJavaObject();
+
+        return mAndroidAudioControl.Call<float>(_eAndroidNativeAPI.getCurrentMusicVolume.ToString());
     }
 
     //-------------------------------------------------------------------------
@@ -132,8 +156,11 @@ public enum _eAndroidNativeAPI
     takeExistPhoto,
     setMusicSilence,
     cancelMusicSilence,
+    getIsSilence,
     setMusicMax,
     cancelMusicMax,
+    getIsMaxVolume,
     setCurrentMusicVolume,
+    getCurrentMusicVolume,
 }
 #endif

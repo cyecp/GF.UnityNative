@@ -44,6 +44,11 @@ bool mIsMax;
     [mVolumeController setValue:mCurrentVolume];
 }
 
+-(bool)getIsSilence
+{
+    return mIsSilence;
+}
+
 -(void)setMusicMax
 {
     mIsMax = true;
@@ -57,6 +62,11 @@ bool mIsMax;
     [mVolumeController setValue:mCurrentVolume];
 }
 
+-(bool)getIsMaxVolume
+{
+    return mIsMax;
+}
+
 -(void)setCurrentMusicVolume:(int) current_muiscvolume
 {
     if(mIsSilence ||mIsMax)
@@ -66,6 +76,11 @@ bool mIsMax;
     
     mCurrentVolume =(float)current_muiscvolume/100;
     [mVolumeController setValue:mCurrentVolume];
+}
+
+-(float)getCurrentMusicVolume
+{
+    return mCurrentVolume;
 }
 
 @end
@@ -82,7 +97,12 @@ extern "C" void cancelMusicSilence_ios()
     [VolumeController cancelMusicSilence];
 }
 
-extern "C" void setMuiscMax_ios()
+extern "C" bool getIsSilence_ios()
+{
+    return [VolumeController getIsSilence];
+}
+
+extern "C" void setMusicMax_ios()
 {
     [VolumeController getMusicVolumeController];
     [VolumeController setMusicMax];
@@ -94,8 +114,18 @@ extern "C" void cancelMusicMax_ios()
     [VolumeController cancelMusicMax];
 }
 
+extern "C" bool getIsMaxVolume()
+{
+    return [VolumeController getIsMaxVolume];
+}
+
 extern "C" void setCurrentMusicVolum_ios(int current_musicvolume)
 {
     [VolumeController getMusicVolumeController];
     [VolumeController setCurrentMusicVolume:current_musicvolume];
+}
+
+extern "C" float getCurrentMusicVolume_ios()
+{
+    return [VolumeController getCurrentMusicVolume];
 }

@@ -39,6 +39,12 @@ public class IOSNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
+    public bool getIsSilence()
+    {
+        return getIsSilence_ios();
+    }
+
+    //-------------------------------------------------------------------------
     public void setMusicMax()
     {
         setMusicMax_ios();
@@ -51,11 +57,22 @@ public class IOSNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
+    public bool getIsMaxVolume()
+    {
+        return getIsMaxVolume_ios();
+    }
+
+    //-------------------------------------------------------------------------
     public void setCurrentMusicVolume(int current_muiscvolume)
     {
         setCurrentMusicVolum_ios(current_muiscvolume);
     }
 
+    //-------------------------------------------------------------------------
+    public float getCurrentMusicVolume()
+    {
+        return getCurrentMusicVolume_ios();
+    }
 #region DllImport
     //-------------------------------------------------------------------------
     [DllImport("__Internal")]
@@ -71,11 +88,17 @@ public class IOSNativeAPI : INativeAPI
     [DllImport("__Internal")]
     private static extern void cancelMusicSilence_ios();
     [DllImport("__Internal")]
+    private static extern bool getIsSilence_ios();
+    [DllImport("__Internal")]
     private static extern void setMusicMax_ios();
     [DllImport("__Internal")]
     private static extern void cancelMusicMax_ios();
     [DllImport("__Internal")]
+    private static extern bool getIsMaxVolume_ios();
+    [DllImport("__Internal")]
     private static extern void setCurrentMusicVolum_ios(int current_musicvolume);
+    [DllImport("__Internal")]
+    private static extern float getCurrentMusicVolume_ios();
 #endregion
 }
 #endif
