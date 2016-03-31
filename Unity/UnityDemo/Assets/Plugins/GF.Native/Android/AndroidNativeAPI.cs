@@ -122,7 +122,7 @@ public class AndroidNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
-    public void setCurrentMusicVolume(int current_muiscvolume)
+    public void setCurrentMusicVolume(float current_muiscvolume)
     {
         _initMusicJavaObject();
 

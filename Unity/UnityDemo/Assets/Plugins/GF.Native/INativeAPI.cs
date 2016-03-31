@@ -13,6 +13,6 @@ public interface INativeAPI
     void setMusicMax();
     void cancelMusicMax();
     bool getIsMaxVolume();
-    void setCurrentMusicVolume(int current_muiscvolume);
+    void setCurrentMusicVolume(float current_muiscvolume);
     float getCurrentMusicVolume();
 }

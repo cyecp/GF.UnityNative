@@ -75,7 +75,7 @@ public class NativeSDK
     }
 
     //-------------------------------------------------------------------------
-    public static void setCurrentMusicVolume(int current_muiscvolume)
+    public static void setCurrentMusicVolume(float current_muiscvolume)
     {
         mINativeAPI.setCurrentMusicVolume(current_muiscvolume);
     }

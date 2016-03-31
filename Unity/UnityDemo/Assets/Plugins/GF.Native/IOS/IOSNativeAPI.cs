@@ -63,7 +63,7 @@ public class IOSNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
-    public void setCurrentMusicVolume(int current_muiscvolume)
+    public void setCurrentMusicVolume(float current_muiscvolume)
     {
         setCurrentMusicVolum_ios(current_muiscvolume);
     }
@@ -96,7 +96,7 @@ public class IOSNativeAPI : INativeAPI
     [DllImport("__Internal")]
     private static extern bool getIsMaxVolume_ios();
     [DllImport("__Internal")]
-    private static extern void setCurrentMusicVolum_ios(int current_musicvolume);
+    private static extern void setCurrentMusicVolum_ios(float current_musicvolume);
     [DllImport("__Internal")]
     private static extern float getCurrentMusicVolume_ios();
 #endregion
