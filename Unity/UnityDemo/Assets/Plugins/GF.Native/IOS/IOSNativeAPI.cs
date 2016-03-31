@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-#if UNITY_IPHONE
+//#if UNITY_IPHONE
 public class IOSNativeAPI : INativeAPI
 {
     //-------------------------------------------------------------------------
@@ -39,7 +39,7 @@ public class IOSNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
-    public bool getIsSilence()
+    public int getIsSilence()
     {
         return getIsSilence_ios();
     }
@@ -57,7 +57,7 @@ public class IOSNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
-    public bool getIsMaxVolume()
+    public int getIsMaxVolume()
     {
         return getIsMaxVolume_ios();
     }
@@ -73,7 +73,8 @@ public class IOSNativeAPI : INativeAPI
     {
         return getCurrentMusicVolume_ios();
     }
-#region DllImport
+
+    #region DllImport
     //-------------------------------------------------------------------------
     [DllImport("__Internal")]
     private static extern void pay_ios(string charge_data);
@@ -88,17 +89,17 @@ public class IOSNativeAPI : INativeAPI
     [DllImport("__Internal")]
     private static extern void cancelMusicSilence_ios();
     [DllImport("__Internal")]
-    private static extern bool getIsSilence_ios();
+    private static extern int getIsSilence_ios();
     [DllImport("__Internal")]
     private static extern void setMusicMax_ios();
     [DllImport("__Internal")]
     private static extern void cancelMusicMax_ios();
     [DllImport("__Internal")]
-    private static extern bool getIsMaxVolume_ios();
+    private static extern int getIsMaxVolume_ios();
     [DllImport("__Internal")]
     private static extern void setCurrentMusicVolum_ios(float current_musicvolume);
     [DllImport("__Internal")]
     private static extern float getCurrentMusicVolume_ios();
-#endregion
+    #endregion
 }
-#endif
+//#endif

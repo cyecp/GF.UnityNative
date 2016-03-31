@@ -9,10 +9,10 @@ public interface INativeAPI
     void takeExistPhoto(int photo_width, int photo_height, string photo_name);
     void setMusicSilence();
     void cancelMusicSilence();
-    bool getIsSilence();
+    int getIsSilence();//0false 1true
     void setMusicMax();
     void cancelMusicMax();
-    bool getIsMaxVolume();
+    int getIsMaxVolume();//0false 1true
     void setCurrentMusicVolume(float current_muiscvolume);
     float getCurrentMusicVolume();
 }

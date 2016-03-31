@@ -51,7 +51,7 @@ public class NativeSDK
     }
 
     //-------------------------------------------------------------------------
-    public static bool getIsSilence()
+    public static int getIsSilence()
     {
         return mINativeAPI.getIsSilence();
     }
@@ -69,7 +69,7 @@ public class NativeSDK
     }
 
     //-------------------------------------------------------------------------
-    public static bool getIsMaxVolume()
+    public static int getIsMaxVolume()
     {
         return mINativeAPI.getIsMaxVolume();
     }

@@ -90,11 +90,11 @@ public class AndroidNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
-    public bool getIsSilence()
+    public int getIsSilence()
     {
         _initMusicJavaObject();
 
-        return mAndroidAudioControl.Call<bool>(_eAndroidNativeAPI.getIsSilence.ToString());
+        return mAndroidAudioControl.Call<int>(_eAndroidNativeAPI.getIsSilence.ToString());
     }
 
     //-------------------------------------------------------------------------
@@ -114,11 +114,11 @@ public class AndroidNativeAPI : INativeAPI
     }
 
     //-------------------------------------------------------------------------
-    public bool getIsMaxVolume()
+    public int getIsMaxVolume()
     {
         _initMusicJavaObject();
 
-        return mAndroidAudioControl.Call<bool>(_eAndroidNativeAPI.getIsMaxVolume.ToString());
+        return mAndroidAudioControl.Call<int>(_eAndroidNativeAPI.getIsMaxVolume.ToString());
     }
 
     //-------------------------------------------------------------------------
