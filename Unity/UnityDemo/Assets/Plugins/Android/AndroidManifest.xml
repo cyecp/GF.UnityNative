@@ -60,6 +60,16 @@
         android:screenOrientation="behind" >
     </activity>
 
+
+    <!-- 添加DataEye需要配置的Meta start -->
+    <!-- DC_APPID 是一组32位的代码，可以在g.dataeye.com创建游戏后获得. -->
+    <!-- “YOUR_APPID”的部分要按照实际情况设置，一定要记得替换哦 -->
+    <meta-data android:value= "0DA1AAA33FA905044AE4263DFC64BEC9" android:name="DC_APPID"/>
+    <!-- DC_CHANNEL对应于您的发布渠道，不同渠道需要做相应的修改 -->
+    <!-- “YOUR_CHANNEL_ID”的部分要按照实际情况设置，一定要记得替换哦 -->
+    <meta-data android:value="YOUR_CHANNEL_ID" android:name="DC_CHANNEL"/>
+    <!-- 添加DataEye需要配置的Meta end -->
+
   </application>
 
 
@@ -81,5 +91,6 @@
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
   <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
 
 </manifest>
