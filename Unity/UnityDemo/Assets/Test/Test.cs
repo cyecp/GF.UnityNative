@@ -52,6 +52,6 @@ public class Test : MonoBehaviour,
         NativeAPIMsgReceiver nativeAPI_msgreceiver = GameObject.Find("NativeAPIMsgReceiver").GetComponent<NativeAPIMsgReceiver>();
         nativeAPI_msgreceiver.TakePhotoReceiverListener = this;
         nativeAPI_msgreceiver.PayReceiverListener = this;
-        nativeAPI_msgreceiver.AudioControlListener = this;
+        nativeAPI_msgreceiver.AudioControlListener = this;        
     }
 }

@@ -44,10 +44,10 @@ public class AudioController {
 		if (this.mAudioManager != null) {
 			this.mMaxVolume = this.mAudioManager
 					.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-			Log.e("AudioController", "mMaxVolume" + this.mMaxVolume);
+			// Log.e("AudioController", "mMaxVolume" + this.mMaxVolume);
 			this.mMinVolume = this.mAudioManager
 					.getStreamVolume(AudioManager.STREAM_MUSIC);
-			Log.e("AudioController", "mMinVolume" + this.mMinVolume);
+			// Log.e("AudioController", "mMinVolume" + this.mMinVolume);
 		}
 	}
 
@@ -56,25 +56,25 @@ public class AudioController {
 		this.mIsSilence = true;
 		this.mIsMaxVolume = false;
 		this.mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0);
-		Log.e("AudioController",
-				"setMusicSilence:: "
-						+ this.mAudioManager
-								.getStreamVolume(AudioManager.STREAM_MUSIC));
+		// Log.e("AudioController",
+		// "setMusicSilence:: "
+		// + this.mAudioManager
+		// .getStreamVolume(AudioManager.STREAM_MUSIC));
 	}
 
 	// -------------------------------------------------------------------------
 	public void cancelMusicSilence() {
 		this.mIsSilence = false;
 		setCurrentMusicVolume(this.mCurrentVolumeProgress);
-		Log.e("AudioController",
-				"cancelMusicSilence:: "
-						+ this.mAudioManager
-								.getStreamVolume(AudioManager.STREAM_MUSIC));
+		// Log.e("AudioController",
+		// "cancelMusicSilence:: "
+		// + this.mAudioManager
+		// .getStreamVolume(AudioManager.STREAM_MUSIC));
 	}
 
 	// -------------------------------------------------------------------------
-	public String getIsSilence() {
-		return this.mIsSilence.toString();
+	public int getIsSilence() {
+		return this.mIsSilence ? 1 : 0;
 	}
 
 	// -------------------------------------------------------------------------
@@ -83,25 +83,25 @@ public class AudioController {
 		this.mIsSilence = false;
 		this.mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
 				this.mMaxVolume, 0);
-		Log.e("AudioController",
-				"setMusicMax:: "
-						+ this.mAudioManager
-								.getStreamVolume(AudioManager.STREAM_MUSIC));
+		// Log.e("AudioController",
+		// "setMusicMax:: "
+		// + this.mAudioManager
+		// .getStreamVolume(AudioManager.STREAM_MUSIC));
 	}
 
 	// -------------------------------------------------------------------------
 	public void cancelMusicMax() {
 		this.mIsMaxVolume = false;
 		setCurrentMusicVolume(this.mCurrentVolumeProgress);
-		Log.e("AudioController",
-				"cancelMusicMax:: "
-						+ this.mAudioManager
-								.getStreamVolume(AudioManager.STREAM_MUSIC));
+		// Log.e("AudioController",
+		// "cancelMusicMax:: "
+		// + this.mAudioManager
+		// .getStreamVolume(AudioManager.STREAM_MUSIC));
 	}
 
 	// -------------------------------------------------------------------------
-	public String getIsMaxVolume() {
-		return this.mIsMaxVolume.toString();
+	public int getIsMaxVolume() {
+		return this.mIsMaxVolume ? 1 : 0;
 	}
 
 	// -------------------------------------------------------------------------
@@ -111,16 +111,16 @@ public class AudioController {
 		}
 
 		this.mCurrentVolumeProgress = current_muiscvolume;
-		Log.e("AudioController",
-				"setCurrentMusicVolume:: mCurrentVolumeProgress::"
-						+ mCurrentVolumeProgress);
+		// Log.e("AudioController",
+		// "setCurrentMusicVolume:: mCurrentVolumeProgress::"
+		// + mCurrentVolumeProgress);
 		this.mCurrentVolume = (int) (this.mMaxVolume * this.mCurrentVolumeProgress);
-		Log.e("AudioController", "setCurrentMusicVolume:: mCurrentVolume::"
-				+ mCurrentVolume);
+		// Log.e("AudioController", "setCurrentMusicVolume:: mCurrentVolume::"
+		// + mCurrentVolume);
 		this.mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
 				this.mCurrentVolume, 0);
-		Log.e("AudioController", "setCurrentMusicVolume:: "
-				+ this.mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC));
+		// Log.e("AudioController", "setCurrentMusicVolume:: "
+		// + this.mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC));
 	}
 
 	// -------------------------------------------------------------------------
