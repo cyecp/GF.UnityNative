@@ -5,6 +5,7 @@ public class NativeSDK
 {
     //-------------------------------------------------------------------------
     static INativeAPI mINativeAPI;
+    static string mNativeAPIMsgReceiverName;
 
     //-------------------------------------------------------------------------
     static NativeSDK()
@@ -17,7 +18,27 @@ public class NativeSDK
         Debug.Log("IOSNativeAPI");
 #else
         Debug.LogError("Do not supported on this platform. ");
-#endif
+#endif       
+    }
+
+    //-------------------------------------------------------------------------
+    public static NativeAPIMsgReceiver getNativeAPIMsgReceiver()
+    {
+        mNativeAPIMsgReceiverName = (typeof(NativeAPIMsgReceiver)).Name;
+        GameObject msg_receiver = GameObject.Find(mNativeAPIMsgReceiverName);
+        NativeAPIMsgReceiver msg_receivermono;
+        if (msg_receiver == null)
+        {
+            msg_receiver = new GameObject(mNativeAPIMsgReceiverName);
+            msg_receivermono = msg_receiver.AddComponent<NativeAPIMsgReceiver>();
+            GameObject.DontDestroyOnLoad(msg_receiver);
+        }
+        else
+        {
+            msg_receivermono = msg_receiver.GetComponent<NativeAPIMsgReceiver>();
+        }
+
+        return msg_receivermono;
     }
 
     //-------------------------------------------------------------------------
