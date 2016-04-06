@@ -1,0 +1,15 @@
+{
+    "group": "DataEye",
+    "libs": ["libicucore.dylib","libz.1.2.5.dylib"],
+    "frameworks": ["libz.tbd",
+		   "AdSupport.framework:optional",
+		   "CoreTelephony.framework",
+		   "Security.framework",
+		   "SystemConfiguration.framework"
+    		   ],
+    "headerpaths": [],
+    "files":   [],
+    "folders": [],    
+    "excludes": ["^.*.meta$", "^.*.mdown$", "^.*.pdf$"],
+    "linker_flags": []
+}
