@@ -4,9 +4,31 @@ using UnityEngine;
 
 public class NativeAPIMsgReceiver : MonoBehaviour
 {
+    //-------------------------------------------------------------------------
+    static string mNativeAPIMsgReceiverName;
+    static NativeAPIMsgReceiver mNativeAPIMsgReceiver;
     public ITakePhotoReceiverListener TakePhotoReceiverListener { get; set; }
     public IPayReceiverListener PayReceiverListener { get; set; }
     public IAudioControlListener AudioControlListener { get; set; }
+
+    //-------------------------------------------------------------------------
+    public static NativeAPIMsgReceiver instance()
+    {
+        mNativeAPIMsgReceiverName = (typeof(NativeAPIMsgReceiver)).Name;
+        GameObject msg_receiver = GameObject.Find(mNativeAPIMsgReceiverName);
+        if (msg_receiver == null)
+        {
+            msg_receiver = new GameObject(mNativeAPIMsgReceiverName);
+            mNativeAPIMsgReceiver = msg_receiver.AddComponent<NativeAPIMsgReceiver>();
+            GameObject.DontDestroyOnLoad(msg_receiver);
+        }
+        else
+        {
+            mNativeAPIMsgReceiver = msg_receiver.GetComponent<NativeAPIMsgReceiver>();
+        }
+
+        return mNativeAPIMsgReceiver;
+    }
 
     //-------------------------------------------------------------------------
     public void PayResult(string result)
@@ -25,29 +47,12 @@ public class NativeAPIMsgReceiver : MonoBehaviour
     }
 
     //-------------------------------------------------------------------------
-    public void sendPicture(string picture_data)
-    {
-        Debug.Log("sendPicture::" + picture_data);
-    }
-
-    //-------------------------------------------------------------------------
     public void getPicSuccess(string getpic_result)
     {
         if (TakePhotoReceiverListener != null)
         {
             TakePhotoReceiverListener.getPicSuccess(getpic_result);
         }
-
-        //if (getpic_result.Equals(_eReceiveResult.getPicSuccess.ToString()))
-        //{
-        //    //加载图片成功
-        //    Debug.Log("加载图片成功");
-        //}
-        //else
-        //{
-        //    //加载图片失败
-
-        //}
     }
 
     //-------------------------------------------------------------------------
