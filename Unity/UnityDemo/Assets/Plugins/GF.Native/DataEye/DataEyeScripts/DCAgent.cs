@@ -4,14 +4,14 @@ using UnityEngine;
 
 public enum DCReportMode
 {
-    DC_DEFAULT = 1,
-    DC_AFTER_LOGIN
+	DC_DEFAULT = 1,
+	DC_AFTER_LOGIN
 };
 
 public class DCAgent : MonoBehaviour
 {
 
-    static DCAgent instance;
+	static DCAgent instance;
 
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
@@ -39,30 +39,30 @@ public class DCAgent : MonoBehaviour
 	private static extern void dcOpenAdTracking();
 #endif
 
-    static DCAgent()
-    {
-    }
+	static DCAgent()
+	{
+	}
 
-    public static DCAgent getInstance()
-    {
-        if (!instance)
-        {
-            GameObject go = new GameObject("DCAgent");
-            DontDestroyOnLoad(go);
-            instance = go.AddComponent<DCAgent>();
-        }
-        return instance;
-    }
+	public static DCAgent getInstance()
+	{
+		if(!instance)
+		{
+			GameObject go = new GameObject("DCAgent");
+			DontDestroyOnLoad(go);
+			instance = go.AddComponent<DCAgent>();
+		}
+		return instance;
+	}
 
-    public void initWithAppIdAndChannelId(string appId, string channelId)
-    {
-        if (appId == null || channelId == null)
-        {
-            return;
-        }
-        //		DCAgent.setUploadInterval(90);
-        //		DCAgent.setReportMode(DCReportMode.DC_AFTER_LOGIN);
-        //		DCAgent.setDebugMode(true);
+	public void initWithAppIdAndChannelId(string appId, string channelId)
+	{
+		if(appId == null || channelId == null)
+		{
+			return;
+		}
+//		DCAgent.setUploadInterval(90);
+//		DCAgent.setReportMode(DCReportMode.DC_AFTER_LOGIN);
+//		DCAgent.setDebugMode(true);
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 		//if you want set appID and channelId through code, you can use function initConfig
@@ -73,10 +73,10 @@ public class DCAgent : MonoBehaviour
 #elif UNITY_IPHONE
 		instance.onStart(appId, channelId);
 #endif
-    }
-
-    void OnApplicationPause(bool pauseStatus)
-    {
+	}
+	
+	void OnApplicationPause(bool pauseStatus)
+	{
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 		if(pauseStatus)
@@ -88,10 +88,10 @@ public class DCAgent : MonoBehaviour
 			instance.onResume();
 		}
 #endif
-    }
+	}
 
-    public static void setReportMode(DCReportMode mode)
-    {
+	public static void setReportMode(DCReportMode mode)
+	{
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 		agent.CallStatic("setReportMode", (int)mode);
@@ -100,10 +100,10 @@ public class DCAgent : MonoBehaviour
 #elif UNITY_WP8
 		DataEyeWP8.DCAgent.setReportMode((DataEyeWP8.DCReportMode)mode);
 #endif
-    }
+	}
 
-    public static void setUploadInterval(UInt32 time)
-    {
+	public static void setUploadInterval(UInt32 time)
+	{
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 		agent.CallStatic("setUploadInterval", (int)time);
@@ -112,14 +112,14 @@ public class DCAgent : MonoBehaviour
 #elif UNITY_WP8
 		DataEyeWP8.DCAgent.setUploadInterval(time);
 #endif
-    }
-
-    public static void setVersion(string appVersion)
-    {
-        if (appVersion == null)
-        {
-            return;
-        }
+	}
+	
+	public static void setVersion(string appVersion)
+	{
+		if(appVersion == null)
+		{
+			return;
+		}
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 		agent.CallStatic("setVersion", appVersion);
@@ -128,14 +128,14 @@ public class DCAgent : MonoBehaviour
 #elif UNITY_WP8
 		DataEyeWP8.DCAgent.setVersion(appVersion);
 #endif
-    }
+	}
 
-    public static void reportError(string titile, string error)
-    {
-        if (titile == null || error == null)
-        {
-            return;
-        }
+	public static void reportError(string titile, string error)
+	{
+		if(titile == null || error == null)
+		{
+			return;
+		}
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 		agent.CallStatic("reportError", titile, error);
@@ -144,8 +144,8 @@ public class DCAgent : MonoBehaviour
 #elif UNITY_WP8
 		DataEyeWP8.DCAgent.reportError(titile, error);
 #endif
-    }
-
+	}
+	
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 	public static void attachCurrentThread()
@@ -195,8 +195,8 @@ public class DCAgent : MonoBehaviour
 	}
 #endif
 
-    public static void setDebugMode(bool mode)
-    {
+	public static void setDebugMode(bool mode)
+	{
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 		agent.CallStatic("setDebugMode", mode);
@@ -205,10 +205,10 @@ public class DCAgent : MonoBehaviour
 #elif UNITY_WP8
 		//DataEyeWP8.DCAgent.setDebugMode(mode);
 #endif
-    }
+	}
 
-    public static void uploadNow()
-    {
+	public static void uploadNow()
+	{
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 		agent.CallStatic("uploadNow");
@@ -217,12 +217,12 @@ public class DCAgent : MonoBehaviour
 #elif UNITY_WP8
 		DataEyeWP8.DCAgent.uploadNow();
 #endif
-    }
+	}
 
-    public static string getUID()
-    {
+	public static string getUID()
+	{
 #if UNITY_EDITOR
-        return null;
+		return null;
 #elif UNITY_ANDROID
 		return agent.CallStatic<string>("getUID");
 #elif UNITY_IPHONE
@@ -232,16 +232,16 @@ public class DCAgent : MonoBehaviour
 #else
 		return null;
 #endif
-    }
-
-    public static void openAdTracking()
-    {
+	}
+	
+	public static void openAdTracking()
+	{
 #if UNITY_EDITOR
 #elif UNITY_ANDROID
 		agent.CallStatic("openAdTracking");
 #elif UNITY_IPHONE
 		dcOpenAdTracking();
 #endif
-    }
+	}
 }
 

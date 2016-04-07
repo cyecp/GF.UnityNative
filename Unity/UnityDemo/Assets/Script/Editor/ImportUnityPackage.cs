@@ -63,16 +63,17 @@ public class ImportUnityPackage : EditorWindow
             foreach (var i in files)
             {
                 AssetDatabase.ImportPackage(i, false);
-                //foreach (var item in mThirdPackageName)
-                //{
-                //    if (i.Contains(item))
-                //    {
-                //        _copyFile(_getManifestPath(), mManifestBackUpPath + @"\" + item + @"\AndroidManifest.xml");
-                //        break;
-                //    }
-                //}
+                
+                foreach (var item in mThirdPackageName)
+                {
+                    if (i.Contains(item))
+                    {
+                        _copyFile(_getManifestPath(), mManifestBackUpPath + @"\" + item + @"\AndroidManifest.xml");
+                        break;
+                    }
+                }
 
-                //_copyToNativePath();
+                _copyToNativePath();
             }
         }
     }

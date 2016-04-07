@@ -1,7 +1,7 @@
 {
     "group": "DataEye",
-    "libs": ["libicucore.dylib","libz.1.2.5.dylib"],
-    "frameworks": ["libz.tbd",
+    "libs": ["libz.tbd"],
+    "frameworks": [
 		   "AdSupport.framework:optional",
 		   "CoreTelephony.framework",
 		   "Security.framework",
