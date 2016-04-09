@@ -25,6 +25,7 @@ public class ImportUnityPackage : EditorWindow
         EditorWindow.GetWindow(typeof(ImportUnityPackage));
 
         mCurrentDir = System.Environment.CurrentDirectory;
+        Debug.LogError(mCurrentDir);
         string current_dir = mCurrentDir;
         current_dir = current_dir.Substring(0, current_dir.LastIndexOf(@"\"));
         mPackagePath = string.Format(current_dir + "{0}", @"\" + mThirdPackageDirectoryName);
@@ -39,7 +40,7 @@ public class ImportUnityPackage : EditorWindow
         bool import = GUILayout.Button("ImportPackage", GUILayout.Width(200));
         if (import)
         {
-            _importPackage();
+            //_importPackage();
         }
     }
 
@@ -63,7 +64,7 @@ public class ImportUnityPackage : EditorWindow
             foreach (var i in files)
             {
                 AssetDatabase.ImportPackage(i, false);
-                
+
                 foreach (var item in mThirdPackageName)
                 {
                     if (i.Contains(item))
