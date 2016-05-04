@@ -6,6 +6,12 @@ using System.Runtime.InteropServices;
 public class IOSPay : IPay
 {
     //-------------------------------------------------------------------------
+    public IOSPay()
+    {
+        
+    }
+
+    //-------------------------------------------------------------------------
     public void pay(string charge_data, int pay_type)
     {
         pay_ios(charge_data,pay_type);
