@@ -18,7 +18,7 @@ public class AndroidPay : IPay
     }
 
     //-------------------------------------------------------------------------
-    public void pay(string charge_data)
+    public void pay(string charge_data, int pay_type)
     {
         if (mAndroidJavaObjectPay != null)
         {

@@ -21,8 +21,8 @@ public class Pay
     }
 
     //-------------------------------------------------------------------------
-    public static void pay(string charge_data)
+    public static void pay(string charge_data, _ePayType pay_type)
     {
-        mIPay.pay(charge_data);
+        mIPay.pay(charge_data, (int)pay_type);
     }
 }

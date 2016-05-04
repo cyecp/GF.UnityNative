@@ -6,15 +6,15 @@ using System.Runtime.InteropServices;
 public class IOSPay : IPay
 {
     //-------------------------------------------------------------------------
-    public void pay(string charge_data)
+    public void pay(string charge_data, int pay_type)
     {
-        pay_ios(charge_data);
+        pay_ios(charge_data,pay_type);
     }
 
 #region DllImport
     //-------------------------------------------------------------------------
     [DllImport("__Internal")]
-    private static extern void pay_ios(string charge_data);
+    private static extern void pay_ios(string charge_data, int pay_type);
 #endregion
 }
 #endif
