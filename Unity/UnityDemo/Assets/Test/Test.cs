@@ -3,8 +3,8 @@ using System.Collections;
 using System;
 
 public class Test : MonoBehaviour,
-    ITakePhotoReceiverListener, IPayReceiverListener, IAudioControlListener
-{
+    ITakePhotoReceiverListener, IPayReceiverListener, IAudioControlListener, IBaiduSpeechListener
+{  
     //-------------------------------------------------------------------------
     public void audioChanged(string chang)
     {
@@ -34,6 +34,12 @@ public class Test : MonoBehaviour,
     }
 
     //-------------------------------------------------------------------------
+    public void speechResult(int result_code, string most_possibleresult)
+    {
+        Debug.Log("speechResult::result_code:: " + (_eSpeechResult)result_code + "   most_possibleresult::" + most_possibleresult);
+    }
+
+    //-------------------------------------------------------------------------
     void Start()
     {
         //初始化各个Listener
@@ -49,9 +55,10 @@ public class Test : MonoBehaviour,
     //-------------------------------------------------------------------------
     void _initNativeMsgReceiverListener()
     {
-        NativeAPIMsgReceiver nativeAPI_msgreceiver = GameObject.Find("NativeAPIMsgReceiver").GetComponent<NativeAPIMsgReceiver>();
+        NativeAPIMsgReceiver nativeAPI_msgreceiver = NativeAPIMsgReceiver.instance();
         nativeAPI_msgreceiver.TakePhotoReceiverListener = this;
         nativeAPI_msgreceiver.PayReceiverListener = this;
-        nativeAPI_msgreceiver.AudioControlListener = this;        
-    }
+        nativeAPI_msgreceiver.AudioControlListener = this;
+        nativeAPI_msgreceiver.BaiduSpeechListener = this;
+    }   
 }

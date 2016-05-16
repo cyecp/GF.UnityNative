@@ -68,4 +68,18 @@ public class EditorGFNativeInternal : EditorWindow
 
         Debug.Log("Export GFNativeBySelf.unitypackage Finished!");
     }
+
+    //-------------------------------------------------------------------------
+    [MenuItem("GF/GF.Native/导出BaiduSpeech")]
+    static void exportBaiduSpeech()
+    {
+        string[] arr_assetpathname = new string[4];
+        arr_assetpathname[0] = "Assets/GF.Native";
+        arr_assetpathname[1] = "Assets/Plugins/Android";
+        arr_assetpathname[2] = "Assets/Plugins/GF.Native/BaiduSpeech";
+        arr_assetpathname[3] = "Assets/Plugins/GF.Native/SDKReceiveMono";
+        AssetDatabase.ExportPackage(arr_assetpathname, mUnityPackagePath + "\\BaiduSpeech.unitypackage", ExportPackageOptions.Recurse);
+
+        Debug.Log("Export BaiduSpeech.unitypackage Finished!");
+    }
 }

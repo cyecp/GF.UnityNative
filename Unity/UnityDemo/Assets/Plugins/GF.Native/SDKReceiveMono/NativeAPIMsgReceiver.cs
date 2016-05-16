@@ -10,6 +10,7 @@ public class NativeAPIMsgReceiver : MonoBehaviour
     public ITakePhotoReceiverListener TakePhotoReceiverListener { get; set; }
     public IPayReceiverListener PayReceiverListener { get; set; }
     public IAudioControlListener AudioControlListener { get; set; }
+    public IBaiduSpeechListener BaiduSpeechListener { get; set; }
 
     //-------------------------------------------------------------------------
     public static NativeAPIMsgReceiver instance()
@@ -61,6 +62,15 @@ public class NativeAPIMsgReceiver : MonoBehaviour
         if (TakePhotoReceiverListener != null)
         {
             TakePhotoReceiverListener.getPicFail(fail);
+        }
+    }
+
+    //-------------------------------------------------------------------------
+    public void speechResult(int result_code, string most_possibleresult)
+    {
+        if (BaiduSpeechListener != null)
+        {
+            BaiduSpeechListener.speechResult(result_code, most_possibleresult);
         }
     }
 }
