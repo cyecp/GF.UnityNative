@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- 此处package应填入你游戏工程的包名 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.AndroidNative.AndroidNative"
@@ -40,6 +40,17 @@
             android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
         <!-- 拍照 End -->
+
+<!-- begin: speech sdk -->
+
+    <activity
+    android:name="com.XFSpeech.XFSpeech.XFSpeechActivity"
+    android:configChanges="orientation|keyboardHidden|screenSize|navigation"
+    android:screenOrientation="landscape"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+    android:windowSoftInputMode="adjustResize|stateHidden" >
+    </activity> 
+    <!-- end : speech sdk -->
 
 
         <!-- 支付 -->

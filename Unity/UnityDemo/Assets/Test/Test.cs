@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 public class Test : MonoBehaviour,
-    ITakePhotoReceiverListener, IPayReceiverListener, IAudioControlListener, IBaiduSpeechListener
+    ITakePhotoReceiverListener, IPayReceiverListener, IAudioControlListener, ISpeechListener
 {  
     //-------------------------------------------------------------------------
     public void audioChanged(string chang)
@@ -34,7 +34,7 @@ public class Test : MonoBehaviour,
     }
 
     //-------------------------------------------------------------------------
-    public void speechResult(int result_code, string most_possibleresult)
+	public void speechResult(_eSpeechResult result_code, string most_possibleresult)
     {
         Debug.Log("speechResult::result_code:: " + (_eSpeechResult)result_code + "   most_possibleresult::" + most_possibleresult);
     }
@@ -59,6 +59,6 @@ public class Test : MonoBehaviour,
         nativeAPI_msgreceiver.TakePhotoReceiverListener = this;
         nativeAPI_msgreceiver.PayReceiverListener = this;
         nativeAPI_msgreceiver.AudioControlListener = this;
-        nativeAPI_msgreceiver.BaiduSpeechListener = this;
+        nativeAPI_msgreceiver.SpeechListener = this;
     }   
 }
