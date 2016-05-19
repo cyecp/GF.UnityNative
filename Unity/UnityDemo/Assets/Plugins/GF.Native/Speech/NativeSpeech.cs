@@ -4,14 +4,30 @@ using System.Collections;
 public class NativeSpeech
 {
     //-------------------------------------------------------------------------
-	static NativeSpeech mNativeSpeech;
-	static ISpeech mISpeech;
+    static NativeSpeech mNativeSpeech;
+    static ISpeech mISpeech;
 
     //-------------------------------------------------------------------------
-	public NativeSpeech(string app_id,_eSpeechLanguage speech_language)
+    public NativeSpeech()
+    {
+    }
+
+    //-------------------------------------------------------------------------
+    public static NativeSpeech Instantce()
+    {
+        if (mNativeSpeech == null)
+        {
+            mNativeSpeech = new NativeSpeech();
+        }
+
+        return mNativeSpeech;
+    }
+
+    //-------------------------------------------------------------------------
+    public void initSpeech(string app_id, _eSpeechLanguage speech_language)
     {
 #if UNITY_ANDROID
-		mISpeech = new AndroidSpeech(app_id,speech_language);
+        mISpeech = new AndroidSpeech(app_id, speech_language);
         Debug.Log("AndroidSpeech::");
 #elif UNITY_IOS
 		mISpeech = new IOSSpeech(app_id,speech_language);
@@ -21,27 +37,24 @@ public class NativeSpeech
 #endif
     }
 
-		//-------------------------------------------------------------------------
-		public static NativeSpeech Instantce(string app_id,_eSpeechLanguage speech_language)
-	{
-		if (mNativeSpeech == null) {
-			mNativeSpeech = new NativeSpeech (app_id, speech_language);
-		}
-
-		return mNativeSpeech;
-	}
-
     //-------------------------------------------------------------------------
-    public  void startSpeech()
+    public void startSpeech()
     {
         Debug.Log("startSpeech::");
-		mISpeech.startSpeech();
+        mISpeech.startSpeech();
+    }
+
+    //-------------------------------------------------------------------------
+    public void cancelSpeech()
+    {
+        Debug.Log("cancelSpeech::");
+        mISpeech.cancelSpeech();
     }
 }
 
 //-------------------------------------------------------------------------
-		public enum _eSpeechLanguage
-		{
-		zh_cn,
-		en_us,
-		}
+public enum _eSpeechLanguage
+{
+    zh_cn,
+    en_us,
+}

@@ -4,35 +4,43 @@ using System;
 
 public class AndroidSpeech : ISpeech
 {
-	 public AndroidJavaClass mAndroidJavaClassSpeech;
-	  public AndroidJavaObject mAndroidSpeech;
-	string mAppId;
-	_eSpeechLanguage mSpeechLanguage;
+    public AndroidJavaClass mAndroidJavaClassSpeech;
+    public AndroidJavaObject mAndroidSpeech;
+    string mAppId;
+    _eSpeechLanguage mSpeechLanguage;
 
     //-------------------------------------------------------------------------
-	public AndroidSpeech(string app_id,_eSpeechLanguage speech_language)
+    public AndroidSpeech(string app_id, _eSpeechLanguage speech_language)
     {
-		mAndroidJavaClassSpeech = new AndroidJavaClass("com.XFSpeech.XFSpeech.XFSpeech");
-		mAppId = app_id;
-		mSpeechLanguage = speech_language;
+        mAndroidJavaClassSpeech = new AndroidJavaClass("com.XFSpeech.XFSpeech.XFSpeech");
+        mAppId = app_id;
+        mSpeechLanguage = speech_language;
     }
 
     //-------------------------------------------------------------------------
     public void startSpeech()
     {
-		_initJavaObject();
- 
-		mAndroidSpeech.Call(_eAndroidBaiduSpeechMsg.startSpeech.ToString());
+        _initJavaObject();
+
+        mAndroidSpeech.Call(_eAndroidBaiduSpeechMsg.startSpeech.ToString());
+    }
+
+    //-------------------------------------------------------------------------
+    public void cancelSpeech()
+    {
+        _initJavaObject();
+
+        mAndroidSpeech.Call(_eAndroidBaiduSpeechMsg.cancelSpeech.ToString());
     }
 
     //-------------------------------------------------------------------------
     void _initJavaObject()
     {
-		if (mAndroidSpeech == null)
-		 {
-			mAndroidSpeech = mAndroidJavaClassSpeech.CallStatic<AndroidJavaObject>("Instantce",
-				"NativeAPIMsgReceiver",mAppId,mSpeechLanguage.ToString());
-		}
+        if (mAndroidSpeech == null)
+        {
+            mAndroidSpeech = mAndroidJavaClassSpeech.CallStatic<AndroidJavaObject>("Instantce",
+                "NativeAPIMsgReceiver", mAppId, mSpeechLanguage.ToString());
+        }
     }
 }
 
