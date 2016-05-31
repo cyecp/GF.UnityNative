@@ -114,8 +114,9 @@
 {
     self.popoverViewController = nil;
     //UnityPause( false );
-    
+    NSLog( @"popoverControllerDidDismissPopover: cancel" );
     //UnitySendMessage( "EtceteraManager", "imagePickerDidCancel", "" );
+    UnitySendMessage([mMsgReciverName UTF8String], [mTakePhotoFailMsgName UTF8String], "");
 }
 
 - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info
@@ -156,6 +157,9 @@
 {
     // dismiss the wrapper, unpause and notifiy Unity what happened
     [self dismissWrappedController];
+    
+    NSLog( @"imagePickerControllerDidCancel: cancel" );
+    UnitySendMessage([mMsgReciverName UTF8String], [mTakePhotoFailMsgName UTF8String], "");
     //UnityPause( false );
     //UnitySendMessage( "EtceteraManager", "imagePickerDidCancel", "" );
 }
