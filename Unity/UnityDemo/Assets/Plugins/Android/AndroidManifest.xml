@@ -31,32 +31,15 @@
           android:value="false" />
     </activity>
 
-    <!-- begin: baidu speech sdk -->
-    <!-- 请填写应用实际的APP_ID -->
-    <meta-data
-        android:name="com.baidu.speech.APP_ID"
-        android:value="8136217" />
-    <!-- 请填写应用实际的API_KEY -->
-    <meta-data
-        android:name="com.baidu.speech.API_KEY"
-        android:value="i1uOyErpupgjWdCqck4NaDPq" />
-    <!-- 请填写应用实际的SECRET_KEY -->
-    <meta-data
-        android:name="com.baidu.speech.SECRET_KEY"
-        android:value="75c315185f4e0bcdf27650e9d0278bce" />
-    <service
-        android:name="com.baidu.speech.VoiceRecognitionService"
-        android:exported="false" >
-    </service>
-
+    <!-- begin: speech sdk -->
     <activity
-    android:name="com.BaiduSpeech.BaiduSpeech.BaiduSpeechActivity"
+    android:name="com.XFSpeech.XFSpeech.XFSpeechActivity"
     android:configChanges="orientation|keyboardHidden|screenSize|navigation"
     android:screenOrientation="landscape"
     android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
     android:windowSoftInputMode="adjustResize|stateHidden" >
     </activity>
-    <!-- end : baidu speech sdk -->
+    <!-- end : speech sdk -->
 
     <!-- 拍照 -->
     <activity
