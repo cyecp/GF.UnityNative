@@ -81,13 +81,11 @@ bool mIsMax;
 
 -(void)setCurrentMusicVolume:(float) current_muiscvolume
 {
-    if(mIsSilence ||mIsMax)
-    {
-        return;
-    }
+    MPMusicPlayerController *mpc = [MPMusicPlayerController applicationMusicPlayer];
+    mpc.volume = current_muiscvolume;
     
-    mCurrentVolume = current_muiscvolume;
-    [mVolumeController setValue:mCurrentVolume];
+    //mCurrentVolume = current_muiscvolume;
+    //[mVolumeController setValue:mCurrentVolume];
 }
 
 -(float)getCurrentMusicVolume
@@ -133,7 +131,7 @@ extern "C" int getIsMaxVolume_ios()
 
 extern "C" void setCurrentMusicVolum_ios(float current_musicvolume)
 {
-    [VolumeController getMusicVolumeController];
+    //[VolumeController getMusicVolumeController];
     [VolumeController setCurrentMusicVolume:current_musicvolume];
 }
 
