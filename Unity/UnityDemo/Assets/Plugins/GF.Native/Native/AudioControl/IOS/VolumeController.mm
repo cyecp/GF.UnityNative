@@ -90,7 +90,8 @@ bool mIsMax;
 
 -(float)getCurrentMusicVolume
 {
-    return mCurrentVolume;
+	MPMusicPlayerController *mpc = [MPMusicPlayerController applicationMusicPlayer];
+    return mpc.volume;
 }
 
 @end

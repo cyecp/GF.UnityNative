@@ -125,6 +125,7 @@ public class AudioController {
 
 	// -------------------------------------------------------------------------
 	public float getCurrentMusicVolume() {
-		return this.mCurrentVolumeProgress;
+		return this.mAudioManager
+				.getStreamVolume(AudioManager.STREAM_MUSIC);
 	}
 }
