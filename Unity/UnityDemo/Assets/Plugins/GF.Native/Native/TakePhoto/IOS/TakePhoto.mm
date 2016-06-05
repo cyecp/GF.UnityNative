@@ -41,7 +41,7 @@
 {
    UIActionSheet *sheet = [UIActionSheet alloc];
     if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
-        [sheet showFromRect:CGRectMake( 0, 0, 128, 128 ) inView:UnityGetGLViewController().view animated:YES];
+        [sheet showFromRect:CGRectMake( 0, 0, mTakePhotoWidth, mTakePhotoHeight ) inView:UnityGetGLViewController().view animated:YES];
     else
         [sheet showInView:UnityGetGLViewController().view];
     
@@ -54,7 +54,7 @@
 {
        UIActionSheet *sheet = [UIActionSheet alloc];
     if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
-        [sheet showFromRect:CGRectMake( 0, 0, 128, 128 ) inView:UnityGetGLViewController().view animated:YES];
+        [sheet showFromRect:CGRectMake( 0, 0, mTakePhotoWidth, mTakePhotoHeight ) inView:UnityGetGLViewController().view animated:YES];
     else
         [sheet showInView:UnityGetGLViewController().view];
     
@@ -98,7 +98,7 @@
         //picker.modalInPopover = YES;
         
         // Display the popover
-        [_popoverViewController presentPopoverFromRect:CGRectMake( 0, 0, 128, 128 )
+        [_popoverViewController presentPopoverFromRect:CGRectMake( 0, 0, mTakePhotoWidth, mTakePhotoHeight )
                                                 inView:UnityGetGLViewController().view
                               permittedArrowDirections:UIPopoverArrowDirectionAny
                                               animated:YES];
@@ -130,8 +130,8 @@
     //            image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     NSLog( @"picker got image with orientation: %i", image.imageOrientation );
-    UIGraphicsBeginImageContext(CGSizeMake(128,128));
-    [image drawInRect:CGRectMake(0, 0, 128, 128)];
+    UIGraphicsBeginImageContext(CGSizeMake(mTakePhotoWidth, mTakePhotoHeight));
+    [image drawInRect:CGRectMake(0, 0, mTakePhotoWidth, mTakePhotoHeight)];
     image2 = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
